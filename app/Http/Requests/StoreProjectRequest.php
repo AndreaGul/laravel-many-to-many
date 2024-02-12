@@ -32,6 +32,7 @@ class StoreProjectRequest extends FormRequest
             'lang' => 'nullable|string|max:60',
             'link_github' => 'nullable|url',
             'type_id'=>'nullable|exists:types,id',
+            'technologies'=>'nullable|exists:technologies,id',
         ];
     }
 }
