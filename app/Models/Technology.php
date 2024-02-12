@@ -9,4 +9,11 @@ class Technology extends Model
 {   
     //model creato con il comando  php artisan make:model -msrRc
     use HasFactory;
+
+    public function projects()
+    {
+        return $this->belongsToMany(Project::class);
+    }
 }
+
+   
