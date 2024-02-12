@@ -9,14 +9,14 @@ use PhpParser\Node\Expr\FuncCall;
 class Project extends Model
 {
     use HasFactory;
-    protected $guarded = ['slug'];
+    protected $guarded = ['slug','technologies'];
 
     public function type()
     {
         return $this->belongsTo(Type::class);
     }
 
-    public function technologys()
+    public function technologies()
     {
         return $this->belongsToMany(Technology::class);
     }
