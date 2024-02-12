@@ -11,8 +11,8 @@
         <li>Link: {{$project->link_github}}</li>
         <li>Categoria: {{$project->type?->title}}</li>
         <li>Tecnologie usate:
-          @foreach ($project->technologys as $technology )
-            {{$technology}},
+          @foreach ($project->technologies as $technology )
+            {{$technology->title}},
           @endforeach
           </li>
         
