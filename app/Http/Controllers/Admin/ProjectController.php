@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreProjectRequest;
 use App\Models\Project;
+use App\Models\Technology;
 use App\Models\Type;
 use Dflydev\DotAccessData\Data;
 use Illuminate\Http\Request;
@@ -28,8 +29,9 @@ class ProjectController extends Controller
     public function create()
     {   
         $types = Type::all();
+        $technologies = Technology::all();
 
-        return view('admin.projects.create',compact('types'));
+        return view('admin.projects.create',compact('types','technologies'));
     }
 
     /**
@@ -37,7 +39,10 @@ class ProjectController extends Controller
      */
     public function store(StoreProjectRequest $request)
     {   
+       
+
         $data = $request->validated();
+        
         
         $project = new Project();
 
@@ -50,10 +55,10 @@ class ProjectController extends Controller
         // $project->contributors = $data['contributors'];
         // $project->lang = $data['lang'];
         // $project->link_github = $data['link_github'];
-        $project->slug = Str::of($data['title'])->slug('-');
+        
         $project -> fill($data);
          
-        
+        $project->slug = Str::of($data['title'])->slug('-');
         $project->save();
         
         return redirect()->route('admin.projects.index');

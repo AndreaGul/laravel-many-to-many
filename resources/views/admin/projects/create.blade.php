@@ -60,6 +60,20 @@
       @endforeach
     </select>
   </div>
+  <div class="col-12">
+    <div>
+      <label for="form-label">Tecnologie usate</label>
+    </div>
+    @foreach ($technologies as $technology)
+       <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="{{$technology->id}}" value="option1" name="technologys[]">
+
+        <label class="form-check-label" for="{{$technology->id}}">{{$technology->title}}</label>
+      </div>
+    @endforeach
+     
+  </div>
+ 
   
   
   <div class="col-12">
