@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreProjectRequest;
+use App\Http\Requests\UpdateProjectRequest;
 use App\Models\Project;
 use App\Models\Technology;
 use App\Models\Type;
@@ -95,7 +96,7 @@ class ProjectController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(StoreProjectRequest $request, Project $project)
+    public function update(UpdateProjectRequest $request, Project $project)
     {
         $data = $request->validated();
         $project->slug = Str::of($data['title'])->slug('-');

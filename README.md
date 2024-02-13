@@ -47,6 +47,4 @@ I task da svolgere sono diversi, ma alcuni di essi sono un ripasso di ciò che a
     aggiungere le operazioni CRUD per il model Technology, in modo da gestire le tecnologie utilizzate nei progetti direttamente dal pannello di amministrazione.
 
 TODO
-fare un upgrade della migration del nome mettendo il metodo unique per far si che non ci siano conflitti con slug
-dividere la validation in due parti per store e update visto che update deve considerare e non considerare il nome esistente
 inserire un pop up di creazione modifica e cancellazione
