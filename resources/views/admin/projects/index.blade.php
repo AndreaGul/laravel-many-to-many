@@ -22,7 +22,7 @@
     <tr class="align-middle">
       <th scope="row">{{$project->id}}</th>
       <td>{{$project->title}}</td>
-      <td>{{$project->title}}</td>
+      <td>{{$project->author}}</td>
       <td>{{$project->lang}}</td>
       <td class="text-center">
         <button class="btn  btn-dark ">
