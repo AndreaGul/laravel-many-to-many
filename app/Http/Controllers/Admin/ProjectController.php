@@ -61,6 +61,9 @@ class ProjectController extends Controller
         $project->slug = Str::of($data['title'])->slug('-');
         $project->save();
         
+        if(isset($data ['technologies'])){
+            $project->technologies()->sync($data['technologies']);
+        }
         return redirect()->route('admin.projects.index');
   
     }
