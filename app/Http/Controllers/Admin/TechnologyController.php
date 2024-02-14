@@ -42,7 +42,8 @@ class TechnologyController extends Controller
 
         $technology->save();
 
-        return redirect()->route('admin.technologies.index')->with('message',"tecnologia $technology->id aggiunta correttamente");
+        return redirect()->route('admin.technologies.index');
+        // ->with('message',"tecnologia $technology->id aggiunta correttamente")
 
     }
 
@@ -75,6 +76,13 @@ class TechnologyController extends Controller
      */
     public function destroy(Technology $technology)
     {
-        //
+        $technology->projects()->detach();
+
+        $technology_id=  $technology->id;
+
+        $technology->delete();
+
+        return to_route('admin.technologies.index');
+        // ->with('message',"tecnologia $technology_id aggiunta correttamente")
     }
 }
